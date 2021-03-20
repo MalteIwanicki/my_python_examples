@@ -19,3 +19,4 @@ zoo.setdefault('horse',0)
 
 print(zoo)
 # >>> {'tigers': 4, 'elephants': 6, 'camels': 23, 'gorillas': 5, 'lion': 0, 'horse': 0}
+

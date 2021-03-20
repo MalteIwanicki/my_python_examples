@@ -80,3 +80,6 @@ for k, v in zoo_food.items():
       # tiger eat meat
       # zebra eat grass
       # snake eat mice
+
+print(type(zoo_food.items()))
+# >>>  <class 'dict_items'>

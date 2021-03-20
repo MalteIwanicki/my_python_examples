@@ -5,7 +5,7 @@ my_dict = {1: 'value', 2: 'value2'}
 print(my_dict['a different key'])
 """
 Traceback (most recent call last):
-  File "C:/Users/malte/Desktop/VHS/examples/a48_dictionaries_key_error.py", line 4, in <module>
+  File "C:/Users/malte/Desktop/VHS/examples/a49_dictionaries_key_error.py", line 4, in <module>
     print(my_dict['a different key'])
 KeyError: 'a different key'
 """
