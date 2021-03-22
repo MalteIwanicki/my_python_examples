@@ -41,6 +41,8 @@ print(has_date('this is not a date'))  # >>> False
 # Or use Regex
 import re
 # a date
+# regex strings often have backslashes so we use a raw string
+# r'' to avoid using backslash as an exit char.
 date_re = re.compile(r"\d\d[./-]\d\d[./-]\d\d\d\d")
 mo = date_re.search(message)  # returns a match object
 print(mo) # >>> <re.Match object; span=(36, 46), match='11.06.2021'>
