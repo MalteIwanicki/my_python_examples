@@ -86,3 +86,51 @@ print(regex_or.search('but superman was much stronger.').group())
 print(regex_or.findall('superman and batman are friends.'))
 # >>> ['super', 'bat']
 
+# ()? a question marks with brackets means this group can appear 0 or one times.
+regex_wo_man = re.compile(r'((super)(wo)?(man))')
+print(regex_wo_man.search('the strongest man in the universe is superman.').group())
+# >>> superman
+print(regex_wo_man.findall('the strongest woman in the universe is superwoman.'))
+# >>> [('superwoman', 'super', 'wo', 'man')]
+print(regex_wo_man.search('there is no superwowowoman.'))
+# >>> None
+
+# ()* asterix means the group can apper any number of times - 0 or more times
+regex_wo_man = re.compile(r'((super)(wo)*(man))')
+print(regex_wo_man.search('there is no superwowowoman.'))
+# >>> <re.Match object; span=(12, 26), match='superwowowoman'>
+
+# ()+ means once or more
+regex_woman = re.compile(r'super(wo)+man')
+print(regex_woman.search('the strongest man in the universe is superman.'))
+# >>> None
+print(regex_woman.search('i like superwoman.'))
+# >>> <re.Match object; span=(7, 17), match='superwoman'>
+print(regex_woman.search('there is no superwowowoman.'))
+# >>> <re.Match object; span=(12, 26), match='superwowowoman'>
+
+# (){n} expects exactly n entrees
+regex_exact = re.compile(r'(\d){4}')
+print(regex_exact.search('I have 4 Sheep'))
+# >>> None
+print(regex_exact.search('I have 4242 Sheep'))
+# >>> <re.Match object; span=(7, 11), match='4242'>
+
+# (){n,m} 2 arguments act like a barrier
+regex_barrier = re.compile(r'(\d){3,5}')
+print(regex_barrier.search('I have 423 Sheep'))
+# >>> <re.Match object; span=(7, 10), match='423'>
+print(regex_barrier.search('I have 12345678 Sheep'))
+# >>> <re.Match object; span=(7, 12), match='12345'>
+
+# as you can see it still matches but only to number 5
+# you can say (){n,} and leave the second argument free, this allowes you
+# to match unlimited amounts from n.
+
+# Regular Expressions match greedy, they look for the very first match.
+
+# use (){n,m}? to do a non greedy match
+
+regex_non_greedy = re.compile(r'(\d){3,5}?')
+print(regex_non_greedy.search('1234567890'))
+# >>> <re.Match object; span=(0, 3), match='123'>
